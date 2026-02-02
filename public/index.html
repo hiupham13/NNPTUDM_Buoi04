@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management - NNPTUDM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛍️ Product Management</h1>
+            <p>Quản lý và tìm kiếm sản phẩm</p>
+        </header>
+
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <h2>🔍 Bộ lọc sản phẩm</h2>
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="titleFilter">
+                        <span class="label-icon">📝</span>
+                        Tên sản phẩm:
+                    </label>
+                    <input 
+                        type="text" 
+                        id="titleFilter" 
+                        placeholder="Nhập tên sản phẩm..."
+                    >
+                </div>
+
+                <div class="filter-group">
+                    <label for="slugFilter">
+                        <span class="label-icon">🔗</span>
+                        Slug:
+                    </label>
+                    <input 
+                        type="text" 
+                        id="slugFilter" 
+                        placeholder="Nhập slug chính xác..."
+                    >
+                </div>
+
+                <div class="filter-group">
+                    <label for="minPriceFilter">
+                        <span class="label-icon">💰</span>
+                        Giá tối thiểu:
+                    </label>
+                    <input 
+                        type="number" 
+                        id="minPriceFilter" 
+                        placeholder="0"
+                        min="0"
+                    >
+                </div>
+
+                <div class="filter-group">
+                    <label for="maxPriceFilter">
+                        <span class="label-icon">💵</span>
+                        Giá tối đa:
+                    </label>
+                    <input 
+                        type="number" 
+                        id="maxPriceFilter" 
+                        placeholder="1000"
+                        min="0"
+                    >
+                </div>
+
+                <div class="filter-actions">
+                    <button id="searchBtn" class="btn btn-primary">
+                        🔍 Tìm kiếm
+                    </button>
+                    <button id="clearBtn" class="btn btn-secondary">
+                        🔄 Xóa bộ lọc
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section">
+            <div class="results-header">
+                <h2>📦 Danh sách sản phẩm</h2>
+                <span id="productCount" class="count-badge">0 sản phẩm</span>
+            </div>
+
+            <div id="loadingSpinner" class="loading">
+                <div class="spinner"></div>
+                <p>Đang tải dữ liệu...</p>
+            </div>
+
+            <div id="errorMessage" class="error-message" style="display: none;">
+                ❌ <span id="errorText"></span>
+            </div>
+
+            <div id="productGrid" class="product-grid">
+                <!-- Products will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div id="productModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalBody">
+                <!-- Product details will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
